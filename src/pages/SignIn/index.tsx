@@ -1,10 +1,11 @@
-import { Button, FormControl, Typography, useTheme } from "@mui/material";
+import { Button, Typography, styled } from "@mui/material";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import SearchIcon from "@mui/icons-material/Search";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import MessageIcon from "@mui/icons-material/CommentOutlined";
 import React from "react";
-import { styled } from "@mui/system";
+import { LoginModal } from "./components/LoginModal";
+import { RegisterModal } from "./components/RegisterModal";
 
 const Wrapper = styled("div")({
   display: "flex",
@@ -74,10 +75,6 @@ const LoginSideTitle = styled(Typography)({
   marginTop: 20,
 });
 
-const LoginFormControl = styled(FormControl)(({ theme }) => {
-  marginBottom: theme.spacing(2);
-});
-
 const styles = {
   icons: {
     fontSize: 32,
@@ -86,12 +83,18 @@ const styles = {
 };
 
 const SignIn: React.FC<{}> = () => {
-  const [visibleModal, setVisibleModal] = React.useState(false);
+  const [visibleModal, setVisibleModal] = React.useState<"signIn" | "signUp">();
 
-  const theme = useTheme();
+  const handleClickOpenSignIn = () => {
+    setVisibleModal("signIn");
+  };
 
-  const onClose = () => {
-    setVisibleModal(false);
+  const handleClickOpenRegister = () => {
+    setVisibleModal("signUp");
+  };
+
+  const handleCloseModal = () => {
+    setVisibleModal(undefined);
   };
 
   return (
@@ -122,9 +125,7 @@ const SignIn: React.FC<{}> = () => {
       <LoginSide>
         <LoginSideWrapper>
           <LoginSideTwitterIcon color="primary" />
-          <LoginSideTitle variant="h4">
-            Узнайте, что происходит в мире прямо сейчас
-          </LoginSideTitle>
+          <LoginSideTitle variant="h4">Узнайте, что происходит в мире прямо сейчас</LoginSideTitle>
           <Typography>
             <b>Присоединяйтесь к Твиттеру прямо сейчас!</b>
           </Typography>
@@ -135,67 +136,18 @@ const SignIn: React.FC<{}> = () => {
             variant="contained"
             color="primary"
             fullWidth
+            onClick={handleClickOpenRegister}
           >
             Зарегистрироваться
           </Button>
-          <Button variant="outlined" color="primary" fullWidth>
+          <Button variant="outlined" color="primary" fullWidth onClick={handleClickOpenSignIn}>
             Войти
           </Button>
         </LoginSideWrapper>
       </LoginSide>
 
-      <ModalBlock visible={open} onClose={onClose} title="Войти в аккаунт">
-        <form onSubmit={(e) => e.preventDefault()}>
-          <LoginFormControl component="fieldset" fullWidth theme={theme}>
-            <FormGroup aria-label="position" row>
-              <Controller
-                as={TextField}
-                control={control}
-                name="email"
-                className={classes.loginSideField}
-                id="email"
-                label="E-Mail"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                variant="filled"
-                type="email"
-                defaultValue=""
-                helperText={errors.email?.message}
-                error={!!errors.email}
-                fullWidth
-                autoFocus
-              />
-              <Controller
-                as={TextField}
-                control={control}
-                name="password"
-                className={classes.loginSideField}
-                id="password"
-                label="Пароль"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                variant="filled"
-                type="password"
-                defaultValue=""
-                helperText={errors.password?.message}
-                error={!!errors.password}
-                fullWidth
-              />
-              <Button
-                disabled={loadingStatus === LoadingStatus.LOADING}
-                type="submit"
-                variant="contained"
-                color="primary"
-                fullWidth
-              >
-                Войти
-              </Button>
-            </FormGroup>
-          </LoginFormControl>
-        </form>
-      </ModalBlock>
+      <LoginModal open={visibleModal === "signIn"} onClose={handleCloseModal} />
+      <RegisterModal open={visibleModal === "signUp"} onClose={handleCloseModal} />
     </Wrapper>
   );
 };
