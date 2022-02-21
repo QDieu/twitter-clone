@@ -9,7 +9,7 @@ import { RegisterModal } from "./components/RegisterModal";
 
 const Wrapper = styled("div")({
   display: "flex",
-  height: "calc(100vh - 84px)",
+  height: "100vh",
 });
 
 const BlueSide = styled("section")({
@@ -25,11 +25,11 @@ const BlueSide = styled("section")({
 
 const BlueSideBigIcon = styled(TwitterIcon)({
   position: "absolute",
-  left: "48%",
-  top: "60%",
+  left: "65%",
+  top: "50%",
   transform: "translate(-50%, -50%)",
-  width: "250%",
-  height: "250%",
+  width: "200%",
+  height: "200%",
 });
 
 const BluSideListInfo = styled("ul")({
@@ -82,7 +82,7 @@ const styles = {
   },
 };
 
-const SignIn: React.FC<{}> = () => {
+export const SignIn: React.FC<{}> = () => {
   const [visibleModal, setVisibleModal] = React.useState<"signIn" | "signUp">();
 
   const handleClickOpenSignIn = () => {
@@ -151,5 +151,3 @@ const SignIn: React.FC<{}> = () => {
     </Wrapper>
   );
 };
-
-export default SignIn;
