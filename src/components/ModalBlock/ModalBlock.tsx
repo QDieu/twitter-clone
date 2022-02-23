@@ -1,6 +1,6 @@
-import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material";
-import React from "react";
-import CloseIcon from "@mui/icons-material/Close";
+import { Dialog, DialogContent, DialogTitle, IconButton } from '@mui/material';
+import React from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 type TProps = {
   title?: string;
   children: React.ReactNode;

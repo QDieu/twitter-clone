@@ -1,6 +1,6 @@
-import { Button, FormControl, FormGroup, styled, TextField } from "@mui/material";
-import React from "react";
-import { ModalBlock } from "../../../components/ModalBlock";
+import { Button, FormControl, FormGroup, styled, TextField } from '@mui/material';
+import React from 'react';
+import { ModalBlock } from '../../../components';
 
 const LoginFormControl = styled(FormControl)(({ theme }) => ({
   marginBottom: theme.spacing(2),
