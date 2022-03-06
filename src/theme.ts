@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material';
 import { red } from '@mui/material/colors';
+import { Shadows } from '@mui/material/styles/shadows';
 
 export const theme = createTheme({
   typography: {
@@ -98,6 +99,7 @@ export const theme = createTheme({
       default: '#fff',
     },
   },
+  shadows: Array(25).fill('none') as Shadows,
 });
 
 export default theme;

@@ -1,45 +1,48 @@
-import React from 'react';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import SearchIcon from '@mui/icons-material/Search';
-import NotificationIcon from '@mui/icons-material/NotificationsNoneOutlined';
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import BookmarkIcon from '@mui/icons-material/BookmarkBorderOutlined';
-import ListIcon from '@mui/icons-material/ListAltOutlined';
-import UserIcon from '@mui/icons-material/PersonOutlineOutlined';
-import { styled, Typography, IconButton, Button } from '@mui/material';
+import React from "react";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import SearchIcon from "@mui/icons-material/Search";
+import NotificationIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import BookmarkIcon from "@mui/icons-material/BookmarkBorderOutlined";
+import ListIcon from "@mui/icons-material/ListAltOutlined";
+import UserIcon from "@mui/icons-material/PersonOutlineOutlined";
+import CreateIcon from "@mui/icons-material/Create";
+import { styled, Typography, IconButton, Button, Hidden } from "@mui/material";
 
-const SideMenuList = styled('ul')({
-  listStyle: 'none',
+const SideMenuList = styled("ul")({
+  position: "sticky",
+  top: 0,
+  listStyle: "none",
   padding: 0,
   margin: 0,
-  width: 230,
+  maxWidth: 230,
 });
 
-const SideMenuListItem = styled('li')(({ theme }) => ({
-  cursor: 'pointer',
+const SideMenuListItem = styled("li")(({ theme }) => ({
+  cursor: "pointer",
 
-  '&:hover': {
-    '& div': {
-      backgroundColor: 'rgba(29,161,242,0.1)',
+  "&:hover": {
+    "& div": {
+      backgroundColor: "rgba(29,161,242,0.1)",
     },
 
-    '& h6': {
+    "& h6": {
       color: theme.palette.primary.main,
     },
 
-    '& svg path': {
+    "& svg path": {
       color: theme.palette.primary.main,
     },
   },
 
-  '& div': {
-    display: 'inline-flex',
-    alignItems: 'center',
-    padding: '0 25px 0 20px',
+  "& div": {
+    display: "inline-flex",
+    alignItems: "center",
+    padding: "0 25px 0 20px",
     borderRadius: 30,
     height: 50,
     marginBottom: 15,
-    transition: 'background-color 0.15 ease-in-out',
+    transition: "background-color 0.15 ease-in-out",
   },
 }));
 
@@ -59,48 +62,63 @@ export const SideMenu: React.FC = () => {
     <SideMenuList>
       <SideMenuListItem>
         <IconButton color="primary" style={{ marginBottom: 16 }}>
-          <TwitterIcon style={{ fontSize: 48 }} />
+          <TwitterIcon style={{ fontSize: 42 }} />
         </IconButton>
       </SideMenuListItem>
       <SideMenuListItem>
         <div>
-          <SearchIcon style={{ fontSize: 36, marginLeft: -5 }} />
-          <SideMenuListItemLabel variant="h6">Поиск</SideMenuListItemLabel>
+          <SearchIcon style={{ fontSize: 32, marginLeft: -5 }} />
+          <Hidden smDown>
+            <SideMenuListItemLabel variant="h6">Поиск</SideMenuListItemLabel>
+          </Hidden>
         </div>
       </SideMenuListItem>
       <SideMenuListItem>
         <div>
-          <NotificationIcon style={{ fontSize: 36, marginLeft: -5 }} />
-          <SideMenuListItemLabel variant="h6">Уведомления</SideMenuListItemLabel>
+          <NotificationIcon style={{ fontSize: 32, marginLeft: -5 }} />
+          <Hidden smDown>
+            <SideMenuListItemLabel variant="h6">Уведомления</SideMenuListItemLabel>
+          </Hidden>
         </div>
       </SideMenuListItem>
       <SideMenuListItem>
         <div>
-          <EmailOutlinedIcon style={{ fontSize: 36, marginLeft: -5 }} />
-          <SideMenuListItemLabel variant="h6">Сообщения</SideMenuListItemLabel>
+          <EmailOutlinedIcon style={{ fontSize: 32, marginLeft: -5 }} />
+          <Hidden smDown>
+            <SideMenuListItemLabel variant="h6">Сообщения</SideMenuListItemLabel>
+          </Hidden>
         </div>
       </SideMenuListItem>
       <SideMenuListItem>
         <div>
-          <BookmarkIcon style={{ fontSize: 36, marginLeft: -5 }} />
-          <SideMenuListItemLabel variant="h6">Закладки</SideMenuListItemLabel>
+          <BookmarkIcon style={{ fontSize: 32, marginLeft: -5 }} />
+          <Hidden smDown>
+            <SideMenuListItemLabel variant="h6">Закладки</SideMenuListItemLabel>
+          </Hidden>
         </div>
       </SideMenuListItem>
       <SideMenuListItem>
         <div>
-          <ListIcon style={{ fontSize: 36, marginLeft: -5 }} />
-          <SideMenuListItemLabel variant="h6">Список</SideMenuListItemLabel>
+          <ListIcon style={{ fontSize: 32, marginLeft: -5 }} />
+          <Hidden smDown>
+            <SideMenuListItemLabel variant="h6">Список</SideMenuListItemLabel>
+          </Hidden>
         </div>
       </SideMenuListItem>
       <SideMenuListItem>
         <div>
-          <UserIcon style={{ fontSize: 36, marginLeft: -5 }} />
-          <SideMenuListItemLabel variant="h6"> Профиль</SideMenuListItemLabel>
+          <UserIcon style={{ fontSize: 32, marginLeft: -5 }} />
+          <Hidden smDown>
+            <SideMenuListItemLabel variant="h6"> Профиль</SideMenuListItemLabel>
+          </Hidden>
         </div>
       </SideMenuListItem>
       <SideMenuListItem>
         <SideMenuTweetButton fullWidth color="primary" variant="contained">
-          Твитнуть
+          <Hidden smDown>Твитнуть</Hidden>
+          <Hidden smUp>
+            <CreateIcon />
+          </Hidden>
         </SideMenuTweetButton>
       </SideMenuListItem>
     </SideMenuList>
