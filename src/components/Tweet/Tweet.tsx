@@ -1,36 +1,36 @@
-import { Avatar, Grid, IconButton, Paper, styled, Typography } from "@mui/material";
-import React from "react";
-import CommentIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import RepostIcon from "@mui/icons-material/RepeatOutlined";
-import LikeIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import ShareIcon from "@mui/icons-material/FileUploadOutlined";
-import { grey } from "@mui/material/colors";
+import { Avatar, IconButton, Paper, styled, Typography } from '@mui/material';
+import React from 'react';
+import CommentIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import RepostIcon from '@mui/icons-material/RepeatOutlined';
+import LikeIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import ShareIcon from '@mui/icons-material/FileUploadOutlined';
+import { grey } from '@mui/material/colors';
 
 const TweetContent = styled(Paper)({
-  display: "flex",
+  display: 'flex',
 
-  padding: "16px 25px",
+  padding: '16px 25px',
   borderTop: 0,
   borderLeft: 0,
   borderRight: 0,
   borderRadius: 0,
 
-  cursor: "pointer",
+  cursor: 'pointer',
 
-  "&:hover": {
-    backgroundColor: "rgb(245, 248, 250)",
+  '&:hover': {
+    backgroundColor: 'rgb(245, 248, 250)',
   },
 });
 
-const TweetUserName = styled("span")({
+const TweetUserName = styled('span')({
   color: grey[500],
 });
 
-const TweetFooter = styled("div")({
-  display: "flex",
-  justifyContent: "space-between",
+const TweetFooter = styled('div')({
+  display: 'flex',
+  justifyContent: 'space-between',
   maxWidth: 450,
-  position: "relative",
+  position: 'relative',
   left: -13,
 });
 
@@ -54,7 +54,7 @@ export const Tweet: React.FC<TProps> = ({ user, text }) => {
     <TweetContent variant="outlined">
       <TweetAvatar alt={`Аватарка пользователя ${user.fullname}`} src={user.avatarUrl}></TweetAvatar>
       <div>
-        {" "}
+        {' '}
         <Typography>
           <b>{user.fullname}</b> <TweetUserName>@{user.username}</TweetUserName>&nbsp;
           <TweetUserName>·</TweetUserName>&nbsp;
