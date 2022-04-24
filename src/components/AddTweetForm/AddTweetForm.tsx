@@ -116,7 +116,7 @@ export const AddTweetForm: React.FC<TProps> = ({ maxRows }) => {
           )}
           <Button
             onClick={handleClickAddTweet}
-            disabled={text.length >= MAX_LENGTH}
+            disabled={text.length > MAX_LENGTH}
             color="primary"
             variant="contained">
             Твитнуть

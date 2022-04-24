@@ -74,13 +74,13 @@ export const SideMenu: React.FC = () => {
     <SideMenuList>
       <SideMenuListItem>
         <IconButton color="primary" style={{ marginBottom: 16 }}>
-          <TwitterIcon style={{ fontSize: 42 }} />
+          <TwitterIcon style={{ fontSize: 36 }} />
         </IconButton>
       </SideMenuListItem>
       <SideMenuListItem>
         <div>
           <SearchIcon style={{ fontSize: 32, marginLeft: -5 }} />
-          <Hidden smDown>
+          <Hidden mdDown>
             <SideMenuListItemLabel variant="h6">Поиск</SideMenuListItemLabel>
           </Hidden>
         </div>
@@ -88,7 +88,7 @@ export const SideMenu: React.FC = () => {
       <SideMenuListItem>
         <div>
           <NotificationIcon style={{ fontSize: 32, marginLeft: -5 }} />
-          <Hidden smDown>
+          <Hidden mdDown>
             <SideMenuListItemLabel variant="h6">Уведомления</SideMenuListItemLabel>
           </Hidden>
         </div>
@@ -96,7 +96,7 @@ export const SideMenu: React.FC = () => {
       <SideMenuListItem>
         <div>
           <EmailOutlinedIcon style={{ fontSize: 32, marginLeft: -5 }} />
-          <Hidden smDown>
+          <Hidden mdDown>
             <SideMenuListItemLabel variant="h6">Сообщения</SideMenuListItemLabel>
           </Hidden>
         </div>
@@ -104,7 +104,7 @@ export const SideMenu: React.FC = () => {
       <SideMenuListItem>
         <div>
           <BookmarkIcon style={{ fontSize: 32, marginLeft: -5 }} />
-          <Hidden smDown>
+          <Hidden mdDown>
             <SideMenuListItemLabel variant="h6">Закладки</SideMenuListItemLabel>
           </Hidden>
         </div>
@@ -112,7 +112,7 @@ export const SideMenu: React.FC = () => {
       <SideMenuListItem>
         <div>
           <ListIcon style={{ fontSize: 32, marginLeft: -5 }} />
-          <Hidden smDown>
+          <Hidden mdDown>
             <SideMenuListItemLabel variant="h6">Список</SideMenuListItemLabel>
           </Hidden>
         </div>
@@ -120,15 +120,15 @@ export const SideMenu: React.FC = () => {
       <SideMenuListItem>
         <div>
           <UserIcon style={{ fontSize: 32, marginLeft: -5 }} />
-          <Hidden smDown>
+          <Hidden mdDown>
             <SideMenuListItemLabel variant="h6"> Профиль</SideMenuListItemLabel>
           </Hidden>
         </div>
       </SideMenuListItem>
       <SideMenuListItem>
         <SideMenuTweetButton fullWidth color="primary" variant="contained" onClick={onOpenModalAddTweet}>
-          <Hidden smDown>Твитнуть</Hidden>
-          <Hidden smUp>
+          <Hidden mdDown>Твитнуть</Hidden>
+          <Hidden mdUp>
             <CreateIcon />
           </Hidden>
         </SideMenuTweetButton>
